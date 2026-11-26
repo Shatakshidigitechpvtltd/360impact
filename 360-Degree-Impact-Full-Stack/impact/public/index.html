@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="360° Impact offers business messaging, IVR and cloud telephony, WhatsApp automation, OTP APIs, RCS, CRM integrations and DLT support."><title>360° Impact | Business Communications</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav"><a class="brand" href="/"><img src="/assets/logo-color.png" alt="360° Impact home" width="1816" height="1046"></a><nav aria-label="Main navigation">
+  <details class="nav-menu" name="main-menu">
+    <summary>About</summary>
+    <div class="nav-menu-links"><a href="/about">About 360° Impact</a><a href="/about#approach">Our approach</a></div>
+  </details>
+  <details class="nav-menu" name="main-menu">
+    <summary>Services</summary>
+    <div class="nav-menu-links"><a href="/services">All services</a><a href="/services#messaging">Messaging channels</a><a href="/services#voice">Voice and call handling</a><a href="/services#automation">Automation, APIs and setup</a></div>
+  </details>
+  <details class="nav-menu" name="main-menu">
+    <summary>Expertise</summary>
+    <div class="nav-menu-links"><a href="/expertise">Expertise overview</a><a href="/expertise#messaging">Messaging and automation</a><a href="/expertise#voice">Voice and call routing</a><a href="/expertise#integration">Integration and verification</a></div>
+  </details>
+  <details class="nav-menu" name="main-menu">
+    <summary>Sectors</summary>
+    <div class="nav-menu-links"><a href="/sectors">All sectors</a><a href="/sectors#retail">Retail and ecommerce</a><a href="/sectors#education">Education and training</a><a href="/sectors#professional">Professional services</a></div>
+  </details>
+  <details class="nav-menu" name="main-menu">
+    <summary>Resources</summary>
+    <div class="nav-menu-links"><a href="/resources">Resource guides</a><a href="/resources#channels">Choose a channel</a><a href="/resources#templates">Message templates</a><a href="/resources#integration">Integration brief</a></div>
+  </details>
+  <a href="/faq">FAQ</a><a class="button" href="/contact">Request a demo</a>
+</nav></div></header>
+<main id="main"><noscript><p class="wrap">Enable JavaScript to send an enquiry or leave feedback.</p></noscript>
+<!-- page-content -->
+</main><footer class="site-footer">
+  <div class="wrap footer-directory">
+    <div><a class="brand" href="/"><img src="/assets/logo-white.png" alt="360° Impact home" width="1816" height="1046"></a><p>Business messaging, email and voice.</p></div>
+    <div><h2>Explore</h2><a href="/about">About</a><a href="/services">Services</a><a href="/expertise">Expertise</a><a href="/sectors">Sectors</a></div>
+    <div><h2>Support</h2><a href="/resources">Resources</a><a href="/faq">FAQ</a><a href="/feedback">Client feedback</a><a href="/contact">Contact</a></div>
+  </div>
+  <div class="wrap footer-bottom"><small>© 360° Impact</small><small><strong>Designed &amp; Developed by ZANZOTAR</strong></small></div>
+</footer>
+<button class="button chat-launcher" id="chat-open" type="button" aria-haspopup="dialog" aria-label="Chat with us" title="Chat with us" hidden><span class="chat-launcher-icon" aria-hidden="true">•••</span></button>
+<dialog class="chat-panel" id="site-chat" aria-labelledby="chat-title">
+  <div class="chat-header">
+    <span class="chat-header-icon" aria-hidden="true"><span class="chat-launcher-icon">•••</span></span>
+    <div class="chat-brand"><h2 id="chat-title">360° Impact</h2><p>Messaging assistant</p></div>
+    <form method="dialog"><button class="chat-close" type="submit" aria-label="Close chat">×</button></form>
+  </div>
+  <section class="chat-screen" data-chat-screen="welcome" aria-labelledby="chat-welcome-title">
+    <h3 class="chat-banner" id="chat-welcome-title" tabindex="-1">How can we help?</h3>
+    <div class="chat-menu">
+      <button type="button" data-chat-view="services"><span class="chat-menu-icon" aria-hidden="true">▤</span>Explore services</button>
+      <button type="button" data-chat-view="questions"><span class="chat-menu-icon" aria-hidden="true">◌</span>Ask a question</button>
+      <button type="button" data-chat-view="demo"><span class="chat-menu-icon" aria-hidden="true">✓</span>Request a demo</button>
+    </div>
+  </section>
+  <section class="chat-screen" data-chat-screen="services" aria-labelledby="chat-services-title" hidden>
+    <button class="chat-back" type="button" data-chat-view="welcome">‹ Back to chat home</button>
+    <h3 class="chat-banner" id="chat-services-title" tabindex="-1">Choose a service</h3>
+    <ul class="chat-service-list" id="chat-services"></ul>
+    <p id="chat-services-status" role="status"></p>
+  </section>
+  <section class="chat-screen chat-conversation" data-chat-screen="questions" aria-labelledby="chat-questions-title" hidden>
+    <button class="chat-back" type="button" data-chat-view="welcome">‹ Back to chat home</button>
+    <h3 class="hero-sr" id="chat-questions-title" tabindex="-1">Ask a question</h3>
+    <div class="chat-log" id="chat-log" role="log" aria-label="Conversation" tabindex="0"><p class="chat-message">Ask me about any 360° Impact service.</p></div>
+    <button class="chat-suggestion" type="button" data-chat-topic="Ask about pricing">Ask about pricing</button>
+  </section>
+  <section class="chat-screen" data-chat-screen="demo" aria-labelledby="chat-demo-title" hidden>
+    <button class="chat-back" type="button" data-chat-view="welcome">‹ Back to chat home</button>
+    <h3 class="chat-banner" id="chat-demo-title" tabindex="-1">Let’s plan your campaign.</h3>
+    <form id="chat-demo" class="chat-demo-form" method="post" action="/api/enquiries">
+      <h4>Your details</h4>
+      <label>Name<input name="name" placeholder="Full name" autocomplete="name" minlength="2" maxlength="100" required></label>
+      <label>Work email<input name="email" placeholder="you@company.com" type="email" autocomplete="email" maxlength="254" required></label>
+      <label>Service<select name="service" required><option value="">Choose a service</option><option>Multiple channels</option></select></label>
+      <label>Campaign details<textarea name="message" rows="2" minlength="10" maxlength="2500" required></textarea></label>
+      <label hidden>Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <button class="button" type="submit">Send enquiry</button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </section>
+  <form class="chat-compose" id="chat-compose">
+    <label class="hero-sr" for="chat-question">Your question</label>
+    <div><input id="chat-question" placeholder="Ask a question…" maxlength="240" required autocomplete="off"><button class="button" type="submit" aria-label="Send question">➤</button></div>
+    <label class="consent chat-consent" id="chat-consent" hidden><input id="chat-ai" type="checkbox"> Use Google Gemini outside the FAQ. Keep personal details, OTPs and confidential information out of chat.</label>
+  </form>
+</dialog>
+</body></html>
