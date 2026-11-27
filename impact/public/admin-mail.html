@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Client Mail | 360° Impact</title><link rel="stylesheet" href="/style.css"><script src="/admin-mail.js" defer></script></head>
+<body class="admin-body">
+<main class="dashboard admin-main">
+  <header class="admin-header"><div><p>360° Impact CRM</p><h1>Client Mail</h1></div><a class="button outline" href="/admin">Back to dashboard</a></header>
+  <section class="admin-inbox" aria-labelledby="mail-title">
+    <h2 id="mail-title">Shatakshidigitechpvtltd@gmail.com</h2>
+    <p id="mail-status" role="status"></p>
+    <form class="admin-filters" id="mail-filters" hidden>
+      <label>Search mail<input type="search" name="q" maxlength="200" placeholder="Subject, sender or keyword"></label>
+      <label>View<select name="view"><option value="inbox">Inbox</option><option value="unread">Unread</option><option value="all">All mail</option></select></label>
+      <div><button class="button" type="submit">Search</button><button class="button outline" id="mail-refresh" type="button">Refresh</button></div>
+    </form>
+    <div id="mail-list" class="mail-list"></div>
+    <button type="button" class="button outline" id="mail-more" hidden>Load more</button>
+    <article id="mail-detail" class="mail-detail" hidden></article>
+  </section>
+</main>
+</body>
+</html>
