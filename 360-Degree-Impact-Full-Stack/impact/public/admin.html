@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Admin | 360° Impact</title><link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64"><link rel="stylesheet" href="/style.css"><script src="/admin.js" defer></script></head><body class="admin-body">
+<section id="admin-signin" class="admin-signin" aria-labelledby="admin-signin-title">
+  <div class="admin-signin-card">
+    <img src="/assets/logo-color.png" alt="360° Impact" width="1816" height="1046">
+    <h1 id="admin-signin-title">Admin sign-in</h1>
+    <noscript><p>Enable JavaScript to sign in.</p></noscript>
+    <p id="status" role="status"></p>
+    <form id="login" method="post" action="/api/admin/login" hidden>
+      <label>Admin password<input name="password" type="password" autocomplete="current-password" maxlength="512" required></label>
+      <button class="button" type="submit">Sign in</button>
+    </form>
+  </div>
+</section>
+<div id="admin-layout" class="admin-layout" hidden>
+<a class="skip" href="#admin-main">Skip to dashboard</a>
+<aside class="admin-sidebar"><div class="admin-sidebar-header"><a class="brand" href="/"><img src="/assets/logo-color.png" alt="360° Impact home" width="1816" height="1046"></a><button class="button outline admin-menu-toggle" id="admin-menu-toggle" type="button" aria-controls="admin-nav" aria-expanded="false" hidden>Menu</button></div>
+<nav id="admin-nav" aria-label="Admin navigation" hidden>
+  <a href="#overview">Dashboard</a>
+  <button type="button" data-kind="enquiry">Mailbox <span class="admin-nav-count" id="mailbox-count"></span></button>
+  <a href="/admin/mail">Client Mail</a>
+  <button type="button" id="admin-due">Due follow-ups</button>
+  <button type="button" data-kind="feedback">Client feedback</button>
+  <a href="#dashboard-charts">Charts</a>
+  <a href="#data-analyst">Data Analyst</a>
+  <a href="#table-panel">Tables</a>
+  <div class="admin-nav-divider" aria-hidden="true"></div>
+  <details><summary>Layout Options</summary><button type="button" id="admin-density" aria-pressed="false">Compact layout</button></details>
+  <a href="#dashboard-widgets">Widgets</a>
+  <details><summary>UI Elements</summary><a href="#pipeline-panel">Lead stage indicators</a><a href="#chart-legend">Chart legend</a></details>
+  <details><summary>Box</summary><a href="#pipeline-panel">Lead pipeline card</a><a href="#top-services-panel">Top services card</a></details>
+  <details><summary>Forms</summary><button type="button" id="admin-search-form">Inbox search form</button><a href="/contact">Public enquiry form</a><a href="/feedback/new">Public feedback form</a></details>
+  <details><summary>Map</summary><a href="https://www.google.com/maps/search/?api=1&amp;query=Dahisar+East+Mumbai+400068" target="_blank" rel="noopener noreferrer">Mumbai office area</a></details>
+  <details><summary>Extension</summary><a href="/#chat-open">Website chatbot</a></details>
+  <details><summary>Sample Pages</summary><a href="/">Homepage</a><a href="/services">Services</a><a href="/faq">FAQ</a></details>
+  <details><summary>Multilevel</summary><details><summary>Lead management</summary><a href="#pipeline-panel">Lead pipeline</a><a href="#table-panel">Current results</a></details></details>
+</nav>
+</aside>
+<main id="admin-main" class="dashboard admin-main" tabindex="-1"><header class="admin-header"><div><p>360° Impact CRM</p><h1>Admin dashboard</h1></div><div class="admin-header-actions">
+  <details id="admin-notifications" class="admin-notifications" hidden>
+    <summary aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12a2 2 0 0 0 4 0"/></svg><span id="notification-count" class="notification-count" hidden></span></summary>
+    <div class="notification-panel"><h2>Notifications</h2><p id="notification-status" role="status">Checking for updates…</p>
+      <button type="button" data-notification="enquiry" disabled>New enquiries <span>0</span></button>
+      <button type="button" data-notification="feedback" disabled>New client feedback <span>0</span></button>
+      <button type="button" data-notification="due" disabled>Due follow-ups <span>0</span></button>
+    </div>
+  </details>
+  <a class="button outline" href="/">View website</a><button id="logout" class="button outline" type="button" hidden>Sign out</button>
+</div></header>
+<section id="overview" class="admin-overview" aria-labelledby="overview-title" hidden>
+  <h2 id="overview-title">CRM overview</h2>
+  <dl class="admin-metrics" id="dashboard-widgets"><div><dt>Total enquiries</dt><dd id="metric-total">—</dd></div><div><dt>New enquiries</dt><dd id="metric-new">—</dd></div><div><dt>In progress</dt><dd id="metric-progress">—</dd></div><div><dt>Closed leads</dt><dd id="metric-closed">—</dd></div><div><dt>Due follow-ups</dt><dd id="metric-due">—</dd></div><div><dt>Feedback to review</dt><dd id="metric-feedback">—</dd></div></dl>
+  <div class="admin-analytics" id="dashboard-charts">
+    <div class="admin-activity"><h3>Enquiry activity</h3><p>Last 7 days compared with the previous 7 days · UTC</p><div class="admin-chart-key" id="chart-legend"><span>Last 7 days</span><span>Previous 7 days</span></div><ol id="admin-chart" class="admin-chart" aria-label="Daily enquiry counts"></ol><p id="overview-status" role="status"></p></div>
+    <div class="admin-activity" id="pipeline-panel"><h3>Lead pipeline</h3><p>Enquiries by stage</p><div id="pipeline-donut" class="admin-donut" aria-hidden="true"></div><ul id="pipeline-chart" class="admin-breakdown admin-pipeline-legend"></ul></div>
+    <div class="admin-activity"><h3>Enquiry trend</h3><p>Daily enquiries for the last 7 days · UTC</p><div id="admin-trend" class="admin-trend"></div></div>
+    <div class="admin-activity" id="top-services-panel"><h3>Top services</h3><p>Most requested services across all enquiries</p><ul id="service-chart" class="admin-breakdown"></ul></div>
+  </div>
+  <section class="admin-activity admin-analyst" id="data-analyst" aria-labelledby="data-analyst-title">
+    <h3 id="data-analyst-title">Data Analyst</h3>
+    <dl class="admin-analyst-grid">
+      <div><dt>Weekly enquiry change</dt><dd id="analyst-weekly">—</dd></div>
+      <div><dt>Lead closure rate</dt><dd id="analyst-closure">—</dd></div>
+      <div><dt>Most requested service</dt><dd id="analyst-service">—</dd></div>
+      <div><dt>Follow-up workload</dt><dd id="analyst-due">—</dd></div>
+    </dl>
+  </section>
+</section>
+<section id="inbox" class="admin-inbox" aria-labelledby="inbox-title" hidden><h2 id="inbox-title" tabindex="-1">Enquiries</h2>
+  <p id="unread-view" hidden>Showing records from the selected notification. <button type="button" class="button outline" id="notification-show-all">Show all</button></p>
+  <form id="admin-filters" class="admin-filters" method="post" role="search">
+    <label>Search<input id="filter-query" type="search" maxlength="100" placeholder="Name, email, company or service"></label>
+    <label>Status<select id="filter-status"><option value="">All statuses</option></select></label>
+    <label id="filter-follow-up-label">Follow-up<select id="filter-follow-up"><option value="">All dates</option><option value="due">Due or overdue</option><option value="upcoming">Upcoming</option><option value="unscheduled">Unscheduled</option></select></label>
+    <div><button class="button" type="submit">Apply filters</button><button class="button outline" type="button" id="filter-clear">Clear</button></div>
+  </form>
+  <details class="admin-table-panel" id="table-panel"><summary>Current results table</summary><div class="admin-table-scroll"><table><thead><tr><th scope="col">Name</th><th scope="col">Service</th><th scope="col">Status</th><th scope="col">Follow-up</th></tr></thead><tbody id="admin-table-body"></tbody></table></div></details>
+  <div id="items"></div><div class="actions"><button id="previous" class="button outline">Previous</button><span id="page"></span><button id="next" class="button outline">Next</button></div>
+</section>
+</main></div></body></html>
